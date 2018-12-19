@@ -14,6 +14,7 @@ var hasVendorName = true
 var systemSettingFolders []string
 var globalSettingFolder string
 var cacheFolder string
+var dataFolder string
 
 func init() {
 	if os.Getenv("XDG_CONFIG_HOME") != "" {
@@ -25,6 +26,11 @@ func init() {
 		systemSettingFolders = strings.Split(os.Getenv("XDG_CONFIG_DIRS"), ":")
 	} else {
 		systemSettingFolders = []string{"/etc/xdg"}
+	}
+	if os.Getenv("XDG_DATA_HOME") != "" {
+		dataFolder = os.Getenv("XDG_DATA_HOME")
+	} else {
+		dataFolder = filepath.Join(os.Getenv("HOME"), ".local", "share")
 	}
 	if os.Getenv("XDG_CACHE_HOME") != "" {
 		cacheFolder = os.Getenv("XDG_CACHE_HOME")

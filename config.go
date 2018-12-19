@@ -42,3 +42,7 @@ func SystemSettingsDir(vendorName, applicationName string) string {
 func SettingsDir(vendorName, applicationName string) string {
 	return dir(globalSettingFolder, vendorName, applicationName)
 }
+
+func DataDir(vendorname, applicationName string) string {
+	return dir(dataFolder, vendorname, applicationName)
+}
